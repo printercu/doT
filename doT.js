@@ -20,7 +20,6 @@
 			varname:		'it',
 			strip:			true,
 			with:			true,
-			dynamicList:	'it._dynamic',
 			startend:		startend.append
 		},
 		startend:	startend,
@@ -94,7 +93,7 @@
 	tags.xx_includeDynamic = {
 		regex: /\{\{@@([\S]+?)\([\s]*([\s\S]*?)[\s]*\)\}\}/g,
 		func: function(m, tmpl, args) {
-			return "';var tmpl=" + doT.templateSettings.dynamicList + "['" + unescape(tmpl) + "'];"
+			return "';var tmpl=" + doT.templateSettings.varname + "['@" + unescape(tmpl) + "'];"
 				+ "out+=doT.render({name:tmpl.name, args:tmpl.args || arguments})+'"
 		}
 	}
