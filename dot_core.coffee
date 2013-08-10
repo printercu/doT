@@ -8,11 +8,20 @@ class DotCore
   compile: (tmpl, compileParams = {}) ->
     compileParams.def ||= {}
     compileParams.doT ||= @
+
+    # Compatibility with original dot.template command(templ,,def)
+    if arguments.length == 3 && arguments[2]?
+	    compileParams.def = arguments[2]
+
     mangles_list = Object.keys(@mangles).sort()
     for m_id, m_name of mangles_list
       tmpl = @mangles[m_name].call compileParams, tmpl, compileParams
     tmpl
 
+  # Compatibilty shim for older doT
+  template: DotCore::compile	
+		
+	
   # cache functions
   getCached: (tmpl) ->
     return @cache unless tmpl

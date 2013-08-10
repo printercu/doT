@@ -252,6 +252,9 @@ It requires `optimist` module, so install it before use.
 
 **HAML!** If you have `haml` executable in your PATH `.haml` files will be passed through it before compilation!
 
+####Creating Browser side dot.js file
+`coffee --join dot.js --compile dot_core.coffee settings\original.coffee do_t.coffee`
+
 ##License:
 - doT is an open source component of http://bebedo.com
 - doT is licensed under the MIT License. (See LICENSE-DOT)
