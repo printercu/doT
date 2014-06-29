@@ -281,6 +281,9 @@ To speedup this process you can install gems from included Gemfile.
 Then you can pass `ruby_server: true` to compiler and it'll run sinatra server to
 precompile templates. `.slim` is also supported in this mode.
 
+####Creating Browser side dot.js file
+`coffee --join dot.js --compile dot_core.coffee settings\original.coffee do_t.coffee`
+
 ##License:
 - doT is an open source component of http://bebedo.com
 - doT is licensed under the MIT License. (See LICENSE-DOT)
